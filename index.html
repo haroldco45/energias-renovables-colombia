@@ -1,0 +1,1632 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ley 1715 de 2014 — Energías Renovables Colombia</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap');
+
+  :root {
+    --forest: #0a2218;
+    --forest-mid: #143324;
+    --forest-light: #1e4a35;
+    --emerald: #1a7a4a;
+    --emerald-bright: #22a060;
+    --gold: #d4a832;
+    --gold-light: #f0c84a;
+    --gold-pale: #fdf6e0;
+    --cream: #f7faf4;
+    --sun: #f5c842;
+    --sun-pale: #fffbeb;
+    --text: #1a2e1e;
+    --text-mid: #2d4a30;
+    --text-light: #5a7a5e;
+    --white: #ffffff;
+    --border: rgba(34,160,96,0.25);
+    --border-gold: rgba(212,168,50,0.3);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--cream);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--forest);
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 100% 80% at 80% 50%, rgba(34,160,96,0.2) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 60% at 10% 80%, rgba(212,168,50,0.12) 0%, transparent 55%),
+      repeating-linear-gradient(
+        135deg,
+        transparent,
+        transparent 40px,
+        rgba(34,160,96,0.04) 40px,
+        rgba(34,160,96,0.04) 41px
+      );
+  }
+
+  /* Sun rays decorative */
+  header::after {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 280px;
+    height: 280px;
+    background: conic-gradient(
+      from 0deg,
+      transparent 0deg, transparent 15deg,
+      rgba(212,168,50,0.07) 15deg, rgba(212,168,50,0.07) 25deg,
+      transparent 25deg, transparent 40deg,
+      rgba(212,168,50,0.07) 40deg, rgba(212,168,50,0.07) 50deg,
+      transparent 50deg, transparent 65deg,
+      rgba(212,168,50,0.07) 65deg, rgba(212,168,50,0.07) 75deg,
+      transparent 75deg, transparent 90deg,
+      rgba(212,168,50,0.07) 90deg, rgba(212,168,50,0.07) 100deg,
+      transparent 100deg
+    );
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .header-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 50px 24px 44px;
+    text-align: center;
+  }
+
+  .header-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(34,160,96,0.15);
+    border: 1px solid rgba(34,160,96,0.3);
+    border-radius: 2px;
+    padding: 6px 18px;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(240,200,74,0.9);
+    font-family: 'Source Serif 4', serif;
+    margin-bottom: 20px;
+  }
+
+  .header-badge .dot {
+    width: 6px; height: 6px;
+    background: var(--emerald-bright);
+    border-radius: 50%;
+    animation: blink 2s infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.3; }
+  }
+
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5.5vw, 3.4rem);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+  }
+
+  header h1 .accent { color: var(--gold-light); }
+  header h1 .sub    { color: var(--emerald-bright); }
+
+  .header-law-num {
+    display: inline-block;
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 1.5px;
+    margin-bottom: 28px;
+    font-style: italic;
+  }
+
+  .header-stats {
+    display: flex;
+    gap: 0;
+    justify-content: center;
+    margin-bottom: 28px;
+    border: 1px solid rgba(34,160,96,0.25);
+    border-radius: 4px;
+    overflow: hidden;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .stat-item {
+    flex: 1;
+    padding: 14px 12px;
+    text-align: center;
+    border-right: 1px solid rgba(34,160,96,0.2);
+    background: rgba(34,160,96,0.08);
+  }
+
+  .stat-item:last-child { border-right: none; }
+
+  .stat-num {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.3;
+  }
+
+  .header-intro {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 0 auto;
+    font-weight: 300;
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--forest-mid);
+    border-bottom: 1px solid rgba(34,160,96,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    gap: 2px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .nav-inner::-webkit-scrollbar { display: none; }
+
+  .nav-btn {
+    flex-shrink: 0;
+    padding: 13px 17px;
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.45);
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+  }
+
+  .nav-btn:hover { color: rgba(240,200,74,0.8); }
+
+  .nav-btn.active {
+    color: var(--gold-light);
+    border-bottom-color: var(--gold);
+  }
+
+  /* ── MAIN ── */
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px 70px;
+  }
+
+  .section { display: none; animation: fadeIn 0.35s ease; }
+  .section.active { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── SEC HEADER ── */
+  .sec-head {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 30px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sec-icon {
+    width: 50px; height: 50px;
+    background: var(--forest);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 1.5rem;
+  }
+
+  .sec-head-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: var(--forest);
+    line-height: 1.2;
+    margin-bottom: 5px;
+  }
+
+  .sec-head-text p {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    font-style: italic;
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--white);
+    border: 1px solid #d8e8da;
+    border-radius: 4px;
+    padding: 22px 26px;
+    margin-bottom: 16px;
+    position: relative;
+    transition: box-shadow 0.2s;
+  }
+
+  .card:hover { box-shadow: 0 4px 18px rgba(10,34,24,0.07); }
+
+  .card-accent {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: var(--emerald);
+    border-radius: 4px 0 0 4px;
+  }
+
+  .card-accent.gold   { background: var(--gold); }
+  .card-accent.sun    { background: var(--sun); }
+  .card-accent.forest { background: var(--forest); }
+
+  .card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--forest);
+    margin-bottom: 10px;
+  }
+
+  .card p, .card li {
+    font-size: 0.92rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+  }
+
+  .card ul { list-style: none; padding: 0; margin-top: 8px; }
+
+  .card ul li {
+    padding: 5px 0 5px 20px;
+    position: relative;
+    border-bottom: 1px solid #eef5ef;
+  }
+
+  .card ul li:last-child { border-bottom: none; }
+
+  .card ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--emerald-bright);
+    font-size: 0.8rem;
+  }
+
+  /* ── DEF BOX ── */
+  .def-box {
+    background: var(--forest);
+    border-radius: 4px;
+    padding: 26px 30px;
+    margin-bottom: 26px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .def-box::before {
+    content: '☀';
+    position: absolute;
+    right: 16px; top: 8px;
+    font-size: 7rem;
+    color: rgba(212,168,50,0.06);
+    line-height: 1;
+  }
+
+  .def-box blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: rgba(240,200,74,0.9);
+    line-height: 1.7;
+    border-left: 3px solid var(--gold);
+    padding-left: 18px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .def-box .def-source {
+    font-size: 0.76rem;
+    color: rgba(255,255,255,0.35);
+    margin-top: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* ── ALERT ── */
+  .alert {
+    border-radius: 3px;
+    padding: 16px 18px;
+    margin-bottom: 16px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .alert-green {
+    background: #edfaf2;
+    border: 1px solid rgba(34,160,96,0.3);
+    border-left: 4px solid var(--emerald);
+  }
+
+  .alert-gold {
+    background: var(--sun-pale);
+    border: 1px solid rgba(212,168,50,0.35);
+    border-left: 4px solid var(--gold);
+  }
+
+  .alert-forest {
+    background: #ecf2ee;
+    border: 1px solid rgba(10,34,24,0.12);
+    border-left: 4px solid var(--forest);
+  }
+
+  .alert-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+
+  .alert-content strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.93rem;
+    color: var(--forest);
+    margin-bottom: 4px;
+  }
+
+  .alert-content p {
+    font-size: 0.87rem;
+    color: var(--text-mid);
+    line-height: 1.6;
+  }
+
+  /* ── TWO COL ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  @media (max-width: 560px) { .two-col { grid-template-columns: 1fr; } }
+
+  /* ── FUENTES GRID ── */
+  .fuentes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+
+  .fuente-card {
+    background: var(--white);
+    border: 1px solid #d8e8da;
+    border-top: 3px solid var(--emerald);
+    border-radius: 3px;
+    padding: 18px 16px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .fuente-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(10,34,24,0.08);
+  }
+
+  .fuente-card.solar { border-top-color: var(--sun); }
+  .fuente-card.wind  { border-top-color: #60b8d4; }
+  .fuente-card.hydro { border-top-color: #3a8fd4; }
+  .fuente-card.bio   { border-top-color: #8bc34a; }
+  .fuente-card.geo   { border-top-color: #e07b39; }
+  .fuente-card.ocean { border-top-color: #2980b9; }
+
+  .fuente-icon { font-size: 1.8rem; margin-bottom: 10px; }
+
+  .fuente-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--forest);
+    margin-bottom: 6px;
+  }
+
+  .fuente-card p {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+
+  /* ── BENEFIT TABLE ── */
+  .ben-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.87rem;
+    margin-bottom: 22px;
+    background: var(--white);
+    border: 1px solid #d8e8da;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .ben-table thead tr { background: var(--forest); }
+
+  .ben-table thead th {
+    padding: 13px 16px;
+    text-align: left;
+    color: rgba(240,200,74,0.9);
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+  }
+
+  .ben-table tbody tr {
+    border-bottom: 1px solid #eef5ef;
+    transition: background 0.15s;
+  }
+
+  .ben-table tbody tr:last-child { border-bottom: none; }
+  .ben-table tbody tr:hover { background: #f0faf4; }
+
+  .ben-table td {
+    padding: 11px 16px;
+    color: var(--text-mid);
+    line-height: 1.55;
+    vertical-align: top;
+  }
+
+  .ben-table td:first-child {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    color: var(--forest);
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 0.73rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+
+  .tag-green  { background: #e0f5e8; color: #0f5c2a; }
+  .tag-gold   { background: #fdf3d0; color: #7a5010; }
+  .tag-blue   { background: #ddeeff; color: #124a8a; }
+  .tag-orange { background: #fef0e0; color: #7a3c10; }
+
+  /* ── STEP ── */
+  .steps { counter-reset: steps; }
+
+  .step {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 18px;
+    padding-bottom: 18px;
+    border-bottom: 1px dashed #d0e8d4;
+  }
+
+  .step:last-child { border-bottom: none; }
+
+  .step-num {
+    width: 38px; height: 38px;
+    background: var(--forest);
+    color: var(--gold-light);
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .step-body h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.97rem;
+    font-weight: 600;
+    color: var(--forest);
+    margin-bottom: 4px;
+  }
+
+  .step-body p {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+  }
+
+  /* ── FAQ ── */
+  .faq-item {
+    background: var(--white);
+    border: 1px solid #d8e8da;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+
+  .faq-q {
+    padding: 15px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--forest);
+    user-select: none;
+    transition: background 0.2s;
+  }
+
+  .faq-q:hover { background: #f0faf4; }
+
+  .faq-q .arrow {
+    color: var(--emerald);
+    font-size: 1rem;
+    transition: transform 0.3s;
+    flex-shrink: 0;
+    margin-left: 12px;
+  }
+
+  .faq-q.open .arrow { transform: rotate(90deg); }
+
+  .faq-a {
+    display: none;
+    padding: 14px 18px 18px;
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    line-height: 1.72;
+    border-top: 1px solid #eef5ef;
+  }
+
+  .faq-a.show { display: block; }
+
+  /* ── DISCLAIMER ── */
+  .disclaimer {
+    background: #eef5ef;
+    border: 1px solid #cce0cc;
+    border-radius: 3px;
+    padding: 14px 18px;
+    margin-top: 30px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .disclaimer p {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  /* ── METER BAR ── */
+  .meta-bar-wrap { margin-bottom: 10px; }
+
+  .meta-bar-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    color: var(--text-mid);
+    margin-bottom: 5px;
+  }
+
+  .meta-bar-label strong { color: var(--forest); font-family: 'Playfair Display', serif; }
+
+  .meta-bar-track {
+    height: 8px;
+    background: #ddeedd;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .meta-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--emerald), var(--gold));
+    border-radius: 20px;
+    transition: width 1s ease;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--forest);
+    text-align: center;
+    padding: 20px 24px;
+    border-top: 1px solid rgba(34,160,96,0.2);
+  }
+
+  footer p {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.5px;
+    font-family: 'Source Serif 4', serif;
+  }
+
+  footer strong { color: rgba(212,168,50,0.55); font-weight: 400; }
+
+  /* ── AI FAB ── */
+  .ai-fab {
+    position: fixed;
+    bottom: 28px; right: 24px;
+    z-index: 999;
+    background: var(--forest);
+    border: 2px solid var(--gold);
+    border-radius: 50px;
+    padding: 12px 20px 12px 14px;
+    display: flex; align-items: center; gap: 8px;
+    cursor: pointer;
+    box-shadow: 0 6px 24px rgba(10,34,24,0.35), 0 0 0 0 rgba(34,160,96,0.4);
+    animation: fabPulse 2.5s infinite;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .ai-fab:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 32px rgba(10,34,24,0.45);
+    animation: none;
+  }
+
+  @keyframes fabPulse {
+    0%, 100% { box-shadow: 0 6px 24px rgba(10,34,24,0.35), 0 0 0 0 rgba(34,160,96,0.5); }
+    50%       { box-shadow: 0 6px 24px rgba(10,34,24,0.35), 0 0 0 8px rgba(34,160,96,0); }
+  }
+
+  .ai-fab-icon { font-size: 1.2rem; }
+
+  .ai-fab-label {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.82rem;
+    color: rgba(240,200,74,0.9);
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+
+  /* ── AI OVERLAY ── */
+  .ai-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10,34,24,0.6);
+    backdrop-filter: blur(3px);
+    z-index: 1000;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 20px 20px 90px;
+  }
+
+  .ai-overlay.open { display: flex; }
+
+  .ai-modal {
+    width: 100%;
+    max-width: 420px;
+    background: var(--cream);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    max-height: 75vh;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    animation: slideUp 0.3s cubic-bezier(0.34,1.56,0.64,1);
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  .ai-modal-header {
+    background: var(--forest);
+    padding: 15px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+  }
+
+  .ai-modal-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .ai-title-icon { font-size: 1.4rem; }
+
+  .ai-modal-title strong {
+    display: block;
+    color: rgba(240,200,74,0.9);
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+  }
+
+  .ai-modal-title span {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.4);
+    font-family: 'Source Serif 4', serif;
+  }
+
+  .ai-close {
+    background: rgba(255,255,255,0.1);
+    border: none;
+    color: rgba(255,255,255,0.6);
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 0.82rem;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+  }
+
+  .ai-close:hover { background: rgba(255,255,255,0.2); color: white; }
+
+  .ai-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    scroll-behavior: smooth;
+  }
+
+  .ai-msg { display: flex; }
+  .ai-msg-bot  { justify-content: flex-start; }
+  .ai-msg-user { justify-content: flex-end; }
+
+  .ai-msg-bubble {
+    max-width: 86%;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 0.87rem;
+    line-height: 1.65;
+    font-family: 'Source Serif 4', serif;
+  }
+
+  .ai-msg-bot .ai-msg-bubble {
+    background: var(--white);
+    border: 1px solid #d8e8da;
+    color: var(--text-mid);
+    border-bottom-left-radius: 4px;
+  }
+
+  .ai-msg-user .ai-msg-bubble {
+    background: var(--forest);
+    color: rgba(255,255,255,0.9);
+    border-bottom-right-radius: 4px;
+  }
+
+  .ai-typing .ai-msg-bubble {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    padding: 14px 18px;
+  }
+
+  .ai-dot {
+    width: 7px; height: 7px;
+    background: var(--emerald-bright);
+    border-radius: 50%;
+    animation: dotBounce 1.2s infinite;
+  }
+
+  .ai-dot:nth-child(2) { animation-delay: 0.2s; }
+  .ai-dot:nth-child(3) { animation-delay: 0.4s; }
+
+  @keyframes dotBounce {
+    0%, 80%, 100% { transform: translateY(0); opacity: 0.5; }
+    40%           { transform: translateY(-6px); opacity: 1; }
+  }
+
+  .ai-suggestions {
+    padding: 8px 12px;
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    flex-shrink: 0;
+    border-top: 1px solid #eef5ef;
+  }
+
+  .ai-suggestions::-webkit-scrollbar { display: none; }
+
+  .ai-suggestions button {
+    flex-shrink: 0;
+    padding: 6px 12px;
+    background: var(--white);
+    border: 1px solid #cce0cc;
+    border-radius: 20px;
+    font-size: 0.74rem;
+    color: var(--text-mid);
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: 'Source Serif 4', serif;
+    transition: all 0.2s;
+  }
+
+  .ai-suggestions button:hover {
+    background: #edfaf2;
+    border-color: var(--emerald);
+    color: var(--forest);
+  }
+
+  .ai-input-area {
+    padding: 12px 14px;
+    border-top: 1px solid #d8e8da;
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+    background: var(--white);
+    flex-shrink: 0;
+  }
+
+  .ai-input-area textarea {
+    flex: 1;
+    border: 1px solid #cce0cc;
+    border-radius: 8px;
+    padding: 9px 12px;
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.87rem;
+    color: var(--text);
+    resize: none;
+    outline: none;
+    line-height: 1.5;
+    background: var(--cream);
+    transition: border-color 0.2s;
+  }
+
+  .ai-input-area textarea:focus { border-color: var(--emerald); }
+
+  .ai-send {
+    width: 38px; height: 38px;
+    background: var(--forest);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .ai-send:hover { background: var(--emerald); transform: scale(1.05); }
+  .ai-send:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+  .ai-send svg {
+    width: 15px; height: 15px;
+    stroke: var(--gold-light);
+  }
+
+  @media (max-width: 460px) {
+    .ai-overlay { padding: 0; align-items: flex-end; }
+    .ai-modal { max-width: 100%; border-radius: 16px 16px 0 0; max-height: 85vh; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="header-badge">
+      <div class="dot"></div>
+      Herramienta Educativa · Derecho Energético
+    </div>
+    <h1>Ley <span class="accent">1715</span> de <span class="sub">2014</span></h1>
+    <p class="header-law-num">Régimen de Promoción de Fuentes No Convencionales de Energía · Colombia</p>
+
+    <div class="header-stats">
+      <div class="stat-item">
+        <span class="stat-num">4</span>
+        <span class="stat-label">Incentivos tributarios</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">6</span>
+        <span class="stat-label">Fuentes FNCE</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">2050</span>
+        <span class="stat-label">Meta carbono neutro</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">10 %</span>
+        <span class="stat-label">IVA excluido paneles</span>
+      </div>
+    </div>
+
+    <p class="header-intro">
+      La ley marco que impulsa la transición energética de Colombia hacia fuentes limpias y sostenibles. Conoce qué establece, a quién beneficia y cómo acceder a sus incentivos.
+    </p>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="showSection('que-es', this)">¿Qué es?</button>
+    <button class="nav-btn" onclick="showSection('fuentes', this)">Fuentes FNCE</button>
+    <button class="nav-btn" onclick="showSection('incentivos', this)">Incentivos</button>
+    <button class="nav-btn" onclick="showSection('autogeneracion', this)">Autogeneración</button>
+    <button class="nav-btn" onclick="showSection('proceso', this)">¿Cómo acceder?</button>
+    <button class="nav-btn" onclick="showSection('faq', this)">Preguntas</button>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ── SECCIÓN 1: QUÉ ES ── -->
+  <div class="section active" id="que-es">
+    <div class="sec-head">
+      <div class="sec-icon">⚡</div>
+      <div class="sec-head-text">
+        <h2>¿Qué es la Ley 1715 de 2014?</h2>
+        <p>Marco normativo de la transición energética colombiana</p>
+      </div>
+    </div>
+
+    <div class="def-box">
+      <blockquote>
+        "La presente ley tiene por objeto promover el desarrollo y la utilización de las fuentes no convencionales de energía, principalmente aquellas de carácter renovable, en el sistema energético nacional, mediante su integración al mercado eléctrico, su participación en las zonas no interconectadas y en otros usos energéticos."
+      </blockquote>
+      <p class="def-source">— Artículo 1º · Ley 1715 de 2014</p>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <div class="card-accent"></div>
+        <h3>🎯 Objetivos principales</h3>
+        <ul>
+          <li>Promover el uso de energías renovables en Colombia</li>
+          <li>Reducir emisiones de gases de efecto invernadero</li>
+          <li>Garantizar seguridad energética a largo plazo</li>
+          <li>Fomentar la inversión en proyectos de energía limpia</li>
+          <li>Integrar las FNCE al Sistema Interconectado Nacional</li>
+          <li>Impulsar el desarrollo de zonas rurales con energía limpia</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-accent gold"></div>
+        <h3>📋 ¿A quiénes aplica?</h3>
+        <ul>
+          <li>Empresas generadoras de energía renovable</li>
+          <li>Personas naturales y jurídicas autogeneradoras</li>
+          <li>Comercializadores de energía eléctrica</li>
+          <li>Industrias que usan energías limpias en sus procesos</li>
+          <li>Constructores que instalan sistemas solares o eólicos</li>
+          <li>Cooperativas y comunidades energéticas</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="alert alert-gold">
+      <div class="alert-icon">⚡</div>
+      <div class="alert-content">
+        <strong>Modificación importante: Ley 2099 de 2021</strong>
+        <p>La Ley 2099 de 2021 modernizó y amplió la Ley 1715, fortaleciendo los incentivos, simplificando trámites y actualizando las definiciones de autogeneración, para adaptarse al crecimiento explosivo del sector solar y eólico en Colombia.</p>
+      </div>
+    </div>
+
+    <div class="alert alert-green">
+      <div class="alert-icon">🌍</div>
+      <div class="alert-content">
+        <strong>Contexto: Colombia y la transición energética</strong>
+        <p>Aunque Colombia tiene una matriz eléctrica relativamente limpia (cerca del 65–70% hidroeléctrica), la variabilidad climática por el Fenómeno del Niño hace vulnerable el suministro. La Ley 1715 busca diversificar la matriz con solar, eólica y otras FNCE para garantizar energía confiable y sostenible.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-accent forest"></div>
+      <h3>📊 Avances del sector FNCE en Colombia</h3>
+      <p style="margin-bottom: 14px; font-size:0.88rem; color: var(--text-light);">Capacidad instalada de fuentes renovables no convencionales (referencia 2024)</p>
+
+      <div class="meta-bar-wrap">
+        <div class="meta-bar-label"><strong>Solar fotovoltaica</strong><span>Mayor crecimiento</span></div>
+        <div class="meta-bar-track"><div class="meta-bar-fill" style="width: 85%"></div></div>
+      </div>
+      <div class="meta-bar-wrap">
+        <div class="meta-bar-label"><strong>Eólica</strong><span>Costa Atlántica</span></div>
+        <div class="meta-bar-track"><div class="meta-bar-fill" style="width: 60%"></div></div>
+      </div>
+      <div class="meta-bar-wrap">
+        <div class="meta-bar-label"><strong>Biomasa</strong><span>Sector agroindustrial</span></div>
+        <div class="meta-bar-track"><div class="meta-bar-fill" style="width: 35%"></div></div>
+      </div>
+      <div class="meta-bar-wrap">
+        <div class="meta-bar-label"><strong>Pequeñas centrales hidroeléctricas</strong><span>PCH</span></div>
+        <div class="meta-bar-track"><div class="meta-bar-fill" style="width: 25%"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SECCIÓN 2: FUENTES FNCE ── -->
+  <div class="section" id="fuentes">
+    <div class="sec-head">
+      <div class="sec-icon">🌿</div>
+      <div class="sec-head-text">
+        <h2>Fuentes No Convencionales de Energía</h2>
+        <p>Fuentes FNCE reconocidas y promovidas por la Ley 1715</p>
+      </div>
+    </div>
+
+    <div class="def-box">
+      <blockquote>
+        "Son Fuentes No Convencionales de Energía (FNCE) aquellas fuentes de energía disponibles a nivel mundial que son ambientalmente sostenibles, pero que en el país no son empleadas de forma masiva o son utilizadas de manera marginal."
+      </blockquote>
+      <p class="def-source">— Artículo 5º · Definiciones · Ley 1715 de 2014</p>
+    </div>
+
+    <div class="fuentes-grid">
+      <div class="fuente-card solar">
+        <div class="fuente-icon">☀️</div>
+        <h4>Energía Solar</h4>
+        <p>Fotovoltaica (electricidad) y termosolar (calor). La de mayor crecimiento en Colombia. Alta radiación en la Costa Caribe, Llanos y Eje Cafetero.</p>
+      </div>
+      <div class="fuente-card wind">
+        <div class="fuente-icon">💨</div>
+        <h4>Energía Eólica</h4>
+        <p>Aprovechamiento del viento mediante aerogeneradores. La Guajira es el epicentro eólico de Colombia, con vientos constantes de alta velocidad.</p>
+      </div>
+      <div class="fuente-card hydro">
+        <div class="fuente-icon">💧</div>
+        <h4>Pequeñas Centrales Hidroeléctricas</h4>
+        <p>Proyectos hidroeléctricos de hasta 20 MW de capacidad instalada. Excluye las grandes hidroeléctricas convencionales.</p>
+      </div>
+      <div class="fuente-card bio">
+        <div class="fuente-icon">🌾</div>
+        <h4>Biomasa y Biogás</h4>
+        <p>Generación de energía a partir de residuos agrícolas, forestales y ganaderos. Gran potencial en sectores como caña de azúcar y palma.</p>
+      </div>
+      <div class="fuente-card geo">
+        <div class="fuente-icon">🌋</div>
+        <h4>Geotérmica</h4>
+        <p>Calor proveniente del interior de la Tierra. Colombia tiene potencial en los volcanes del sur (Nariño, Cauca), aún en fase exploratoria.</p>
+      </div>
+      <div class="fuente-card ocean">
+        <div class="fuente-icon">🌊</div>
+        <h4>Energía de los Mares</h4>
+        <p>Maremotriz, undimotriz y maremotérmica. Colombia tiene costas sobre el Pacífico y el Caribe. Tecnología en etapa de desarrollo.</p>
+      </div>
+    </div>
+
+    <div class="alert alert-forest">
+      <div class="alert-icon">🔬</div>
+      <div class="alert-content">
+        <strong>¿Qué NO es FNCE según la ley?</strong>
+        <p>Las grandes centrales hidroeléctricas (más de 20 MW), las plantas de energía nuclear y las plantas termoeléctricas de combustibles fósiles convencionales (carbón, gas, petróleo) NO están clasificadas como FNCE y por tanto no acceden a los beneficios de la Ley 1715.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SECCIÓN 3: INCENTIVOS ── -->
+  <div class="section" id="incentivos">
+    <div class="sec-head">
+      <div class="sec-icon">💰</div>
+      <div class="sec-head-text">
+        <h2>Incentivos Tributarios y Económicos</h2>
+        <p>Beneficios fiscales para inversores en proyectos de energía renovable</p>
+      </div>
+    </div>
+
+    <div class="alert alert-gold">
+      <div class="alert-icon">⭐</div>
+      <div class="alert-content">
+        <strong>¿Por qué son tan importantes estos incentivos?</strong>
+        <p>Los incentivos de la Ley 1715 han sido clave para detonar el boom solar y eólico en Colombia desde 2019. Reducen significativamente el costo de inversión y el tiempo de recuperación de capital, haciendo viables proyectos que sin ellos serían financieramente difíciles.</p>
+      </div>
+    </div>
+
+    <table class="ben-table">
+      <thead>
+        <tr>
+          <th>Incentivo</th>
+          <th>¿En qué consiste?</th>
+          <th>Límite / Condición</th>
+          <th>Tipo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Deducción Renta</td>
+          <td>Deducción del 50% del valor invertido en proyectos FNCE de la renta líquida gravable</td>
+          <td>Máximo 50% de la renta líquida. Hasta 15 años</td>
+          <td><span class="tag tag-green">Impuesto de renta</span></td>
+        </tr>
+        <tr>
+          <td>Exclusión IVA</td>
+          <td>Los equipos, elementos y maquinaria para proyectos FNCE están excluidos del IVA (0%)</td>
+          <td>Aplica para equipos nuevos. Requiere certificación UPME</td>
+          <td><span class="tag tag-gold">IVA · 0%</span></td>
+        </tr>
+        <tr>
+          <td>Exención Arancel</td>
+          <td>Los equipos importados para proyectos FNCE tienen arancel de importación de 0%</td>
+          <td>Equipos certificados por UPME / DIAN</td>
+          <td><span class="tag tag-blue">Arancel · 0%</span></td>
+        </tr>
+        <tr>
+          <td>Depreciación acelerada</td>
+          <td>Posibilidad de depreciar aceleradamente los activos usados en generación de FNCE</td>
+          <td>Porcentaje anual definido por el Gobierno Nacional</td>
+          <td><span class="tag tag-orange">Contable / Fiscal</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="two-col">
+      <div class="card">
+        <div class="card-accent"></div>
+        <h3>🏭 ¿Quién certifica los proyectos?</h3>
+        <p>La <strong>UPME</strong> (Unidad de Planeación Minero Energética) es la entidad encargada de certificar que un proyecto califica como FNCE para acceder a los incentivos tributarios. Sin este certificado, no se pueden reclamar los beneficios ante la DIAN.</p>
+      </div>
+      <div class="card">
+        <div class="card-accent gold"></div>
+        <h3>📈 Impacto del incentivo de renta</h3>
+        <p>Una empresa que invierta <strong>$2.000 millones</strong> en paneles solares puede deducir hasta <strong>$1.000 millones</strong> de su renta líquida, generando un ahorro real en impuesto de renta de aproximadamente <strong>$350 millones</strong> (35% de impuesto).</p>
+      </div>
+    </div>
+
+    <div class="alert alert-green">
+      <div class="alert-icon">🏠</div>
+      <div class="alert-content">
+        <strong>Incentivos para hogares y pequeños autogeneradores</strong>
+        <p>Los usuarios residenciales y pequeñas empresas que instalen paneles solares también pueden beneficiarse de la exclusión de IVA en los equipos. Adicionalmente, la energía que generen y viertan a la red puede ser compensada en su factura de energía (Resolución CREG 174 de 2021).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SECCIÓN 4: AUTOGENERACIÓN ── -->
+  <div class="section" id="autogeneracion">
+    <div class="sec-head">
+      <div class="sec-icon">🏠</div>
+      <div class="sec-head-text">
+        <h2>Autogeneración y Generación Distribuida</h2>
+        <p>Cómo producir tu propia energía renovable en Colombia</p>
+      </div>
+    </div>
+
+    <div class="def-box">
+      <blockquote>
+        "Autogenerador: Persona natural o jurídica que produce energía eléctrica principalmente para atender sus propias necesidades. Si genera excedentes, puede entregarlos a la red."
+      </blockquote>
+      <p class="def-source">— Ley 1715 de 2014 y Ley 2099 de 2021</p>
+    </div>
+
+    <div class="card">
+      <div class="card-accent"></div>
+      <h3>📊 Clasificación de autogeneradores</h3>
+      <ul>
+        <li><strong>Autogenerador a pequeña escala (AGPE):</strong> Hasta 1 MW de capacidad instalada — hogares, pymes, fincas</li>
+        <li><strong>Autogenerador a gran escala (AGGE):</strong> Más de 1 MW — industrias, centros comerciales, hospitales</li>
+        <li><strong>Generador de zona no interconectada:</strong> Comunidades sin acceso a la red eléctrica nacional</li>
+      </ul>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <div class="card-accent gold"></div>
+        <h3>⚡ Excedentes de energía</h3>
+        <p>Si tu sistema solar genera más energía de la que consumes, puedes entregar esos excedentes a la red del operador local. El comercializador debe reconocerte esa energía como <strong>crédito en tu factura</strong> al precio de la energía en bolsa. No te pagan dinero, te descuentan en la factura.</p>
+      </div>
+      <div class="card">
+        <div class="card-accent forest"></div>
+        <h3>🔌 Conexión a la red</h3>
+        <p>Para conectar tu sistema solar a la red debes solicitar la conexión al <strong>Operador de Red</strong> (p. ej. EPM, Celsia, Electricaribe). Ellos verifican la capacidad de la red local y definen el punto de conexión. El proceso puede tomar entre 30 y 90 días.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-accent sun"></div>
+      <h3>🏘️ Caso práctico: Paneles solares en un hogar</h3>
+      <p>Una familia en Medellín que paga $250.000/mes en energía instala un sistema solar de 3 kWp (~$15 millones). Con la exclusión de IVA ahorra ~$2.7 millones. El sistema cubre el 80% de su consumo, reduciendo la factura a ~$50.000/mes. Los excedentes se acreditan. Recuperación de inversión: ~8 años. Vida útil del sistema: 25–30 años.</p>
+    </div>
+
+    <div class="alert alert-gold">
+      <div class="alert-icon">🌞</div>
+      <div class="alert-content">
+        <strong>Colombia: uno de los mejores lugares del mundo para solar</strong>
+        <p>Colombia tiene una irradiación solar promedio de 4.5 a 6.5 kWh/m²/día, muy por encima de Alemania (3.0) o España (5.0). Regiones como La Guajira, Córdoba, Santander y los Llanos Orientales tienen condiciones excepcionales para la energía solar.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SECCIÓN 5: PROCESO ── -->
+  <div class="section" id="proceso">
+    <div class="sec-head">
+      <div class="sec-icon">🗺️</div>
+      <div class="sec-head-text">
+        <h2>¿Cómo acceder a los beneficios?</h2>
+        <p>Pasos para certificar tu proyecto y reclamar los incentivos tributarios</p>
+      </div>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h4>Definir el tipo de proyecto y capacidad</h4>
+          <p>Determina si tu proyecto es de autogeneración (solar en tu empresa o casa) o de generación para venta al mercado. Define la capacidad en kW o MW. Esto determina qué trámites son necesarios.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h4>Solicitud de certificación ante la UPME</h4>
+          <p>Presenta la documentación del proyecto ante la <strong>Unidad de Planeación Minero Energética (UPME)</strong> para obtener la certificación como proyecto de FNCE. Sin esta certificación, no puedes acceder a los beneficios tributarios. El trámite se hace en línea a través del portal de la UPME.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h4>Obtener concepto técnico del IDEAM (si aplica)</h4>
+          <p>Para algunos proyectos (especialmente solar y eólico a mayor escala), se requiere un concepto del IDEAM sobre el recurso energético disponible en la zona del proyecto.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h4>Licencia ambiental y permisos</h4>
+          <p>Proyectos de mayor escala requieren licencia ambiental del ANLA. Los proyectos pequeños de autogeneración (residencial / pequeña empresa) generalmente no requieren licencia ambiental, solo conexión al operador de red.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <h4>Conexión al Operador de Red</h4>
+          <p>Si el proyecto estará conectado a la red eléctrica nacional, debes solicitar la viabilidad de conexión al operador de red de tu zona y firmar el contrato de conexión. Esto incluye la instalación del medidor bidireccional.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">6</div>
+        <div class="step-body">
+          <h4>Registro en el RNFC (si aplica)</h4>
+          <p>Los proyectos de generación que vendan energía al sistema deben registrarse en el Registro Nacional de Fuentes de Energía No Convencional (RNFC) del IPSE o la UPME, según corresponda.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">7</div>
+        <div class="step-body">
+          <h4>Aplicar los beneficios en declaración de renta</h4>
+          <p>Con la certificación UPME en mano, tu contador o asesor tributario puede aplicar la deducción del 50% en la declaración de renta, gestionar la exclusión de IVA en compras de equipos y la exención arancelaria en importaciones.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert alert-forest">
+      <div class="alert-icon">🏛️</div>
+      <div class="alert-content">
+        <strong>Entidades clave del sector</strong>
+        <p><strong>UPME</strong> — Certifica proyectos FNCE y planea el sector energético. <strong>CREG</strong> — Regula los mercados de energía y gas. <strong>ANLA</strong> — Otorga licencias ambientales. <strong>IPSE</strong> — Energía para zonas no interconectadas. <strong>MME</strong> — Ministerio de Minas y Energía, define la política.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SECCIÓN 6: FAQ ── -->
+  <div class="section" id="faq">
+    <div class="sec-head">
+      <div class="sec-icon">❓</div>
+      <div class="sec-head-text">
+        <h2>Preguntas Frecuentes</h2>
+        <p>Dudas comunes sobre la Ley 1715 y las energías renovables en Colombia</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        ¿Puedo instalar paneles solares en mi casa y vender la energía?
+        <span class="arrow">▶</span>
+      </div>
+      <div class="faq-a">
+        No exactamente "vender", pero sí puedes <strong>entregar excedentes a la red y recibirlos como crédito en tu factura</strong>. La normativa colombiana (Resolución CREG 174 de 2021) permite que los pequeños autogeneradores residenciales entreguen excedentes y los vean reflejados como descuento en sus facturas al precio de la energía en bolsa. No es un pago en dinero sino una compensación en la factura.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        ¿Qué tan grande debe ser mi proyecto para acceder a los incentivos de la Ley 1715?
+        <span class="arrow">▶</span>
+      </div>
+      <div class="faq-a">
+        No hay un mínimo establecido en la ley. Desde proyectos residenciales pequeños hasta grandes plantas industriales pueden acceder. Lo importante es que los equipos adquiridos se destinen a un proyecto FNCE. Para personas naturales con proyectos pequeños, el mayor beneficio suele ser la <strong>exclusión de IVA en los paneles solares e inversores</strong>. Las deducciones de renta son más relevantes para empresas contribuyentes del impuesto de renta.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        ¿Cuánto se demora la certificación UPME?
+        <span class="arrow">▶</span>
+      </div>
+      <div class="faq-a">
+        El tiempo varía según la complejidad del proyecto y la carga de trabajo de la UPME. Para proyectos de autogeneración a pequeña escala puede tomar entre <strong>1 y 3 meses</strong>. Para proyectos de mayor escala que requieren más documentación técnica, puede extenderse. La UPME ha ido simplificando el proceso con el tiempo. Se recomienda contratar un consultor especializado para agilizar el trámite.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        ¿La deducción del 50% en renta aplica para personas naturales?
+        <span class="arrow">▶</span>
+      </div>
+      <div class="faq-a">
+        Aplica para personas naturales y jurídicas que sean <strong>contribuyentes del impuesto de renta</strong> y que realicen inversiones en proyectos FNCE. Sin embargo, el beneficio es más significativo para empresas con alta carga tributaria. Para una persona natural con ingresos bajos que no tribute mucho, el beneficio más tangible suele ser la exclusión de IVA. En todos los casos, consultar con un contador tributario es fundamental.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        ¿Cuáles son los mejores departamentos de Colombia para proyectos solares?
+        <span class="arrow">▶</span>
+      </div>
+      <div class="faq-a">
+        Los departamentos con mayor potencial solar son: <strong>La Guajira, Córdoba, Sucre, Cesar, Bolívar y Atlántico</strong> en la Costa Caribe (irradiación de 5.5–6.5 kWh/m²/día). También destacan <strong>Casanare, Meta y Vichada</strong> en los Llanos Orientales. En el interior, Santander, Huila, Tolima y el Valle del Cauca tienen buenos recursos. Antioquia, con su clima variable, sigue siendo viable pero con menor irradiación promedio.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        ¿Es obligatorio conectarse a la red o puedo tener un sistema aislado?
+        <span class="arrow">▶</span>
+      </div>
+      <div class="faq-a">
+        No es obligatorio. Puedes tener un sistema <strong>aislado (off-grid)</strong> con baterías sin conectarte a la red. Esto es muy común en fincas, viviendas rurales y zonas sin conexión eléctrica. La ventaja es la total autonomía; la desventaja es que debes dimensionar bien el sistema y las baterías para cubrir tus necesidades. También puedes tener un sistema <strong>híbrido</strong> (con y sin red) para mayor seguridad de suministro.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        ¿Qué relación tiene la Ley 1715 con la Ley 2099 de 2021?
+        <span class="arrow">▶</span>
+      </div>
+      <div class="faq-a">
+        La <strong>Ley 2099 de 2021</strong> es una ley de transición energética que modifica, complementa y fortalece la Ley 1715. Entre sus aportes: amplió las definiciones de autogeneración, simplificó trámites, estableció metas de incorporación de FNCE más ambiciosas, reforzó el esquema de incentivos, creó nuevas figuras como las comunidades energéticas y alineó la legislación con los compromisos de Colombia en el Acuerdo de París.
+      </div>
+    </div>
+
+    <div class="disclaimer">
+      <span style="font-size:1.2rem; flex-shrink:0;">⚠️</span>
+      <p>Esta aplicación es de carácter exclusivamente educativo e informativo. La normativa energética puede cambiar. Para aplicar beneficios tributarios, consulte siempre a un contador o abogado tributarista especializado, y verifique la normativa vigente en la UPME, CREG y el Ministerio de Minas y Energía.</p>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>Desarrollada por Vibras Positivas HM</strong> — Derechos de Autor Reservados · Colombia 2025</p>
+</footer>
+
+<!-- ── BOTÓN IA FLOTANTE ── -->
+<button class="ai-fab" onclick="toggleAI()" title="Consultar con IA">
+  <span class="ai-fab-icon">☀️</span>
+  <span class="ai-fab-label">Consultor IA</span>
+</button>
+
+<!-- ── MODAL CHAT IA ── -->
+<div class="ai-overlay" id="aiOverlay" onclick="closeAIOverlay(event)">
+  <div class="ai-modal">
+    <div class="ai-modal-header">
+      <div class="ai-modal-title">
+        <span class="ai-title-icon">⚡</span>
+        <div>
+          <strong>Consultor Energético IA</strong>
+          <span>Especialista en Ley 1715 · Energías Renovables Colombia</span>
+        </div>
+      </div>
+      <button class="ai-close" onclick="toggleAI()">✕</button>
+    </div>
+
+    <div class="ai-messages" id="aiMessages">
+      <div class="ai-msg ai-msg-bot">
+        <div class="ai-msg-bubble">
+          ☀️ ¡Hola! Soy tu consultor especializado en la <strong>Ley 1715 de 2014</strong> y energías renovables en Colombia.<br><br>
+          Puedo orientarte sobre incentivos tributarios, cómo instalar paneles solares, autogeneración, trámites ante la UPME, y más.<br><br>
+          ⚠️ <em>Soy una herramienta educativa. Para decisiones de inversión o tributarias, consulta a un especialista.</em><br><br>
+          ¿En qué te puedo ayudar?
+        </div>
+      </div>
+    </div>
+
+    <div class="ai-suggestions">
+      <button onclick="sendSuggestion('¿Cuáles son los incentivos tributarios de la Ley 1715?')">💰 Incentivos tributarios</button>
+      <button onclick="sendSuggestion('¿Cómo instalo paneles solares en mi casa en Colombia?')">🏠 Paneles en mi casa</button>
+      <button onclick="sendSuggestion('¿Cómo obtengo la certificación UPME para mi proyecto?')">📋 Certificación UPME</button>
+    </div>
+
+    <div class="ai-input-area">
+      <textarea id="aiInput" placeholder="Pregunta sobre Ley 1715, energía solar, incentivos..." rows="2" onkeydown="handleKey(event)"></textarea>
+      <button class="ai-send" id="aiSendBtn" onclick="sendMessage()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function showSection(id, btn) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function toggleFaq(el) {
+    const answer = el.nextElementSibling;
+    const isOpen = el.classList.contains('open');
+    document.querySelectorAll('.faq-q.open').forEach(q => {
+      q.classList.remove('open');
+      q.nextElementSibling.classList.remove('show');
+    });
+    if (!isOpen) {
+      el.classList.add('open');
+      answer.classList.add('show');
+    }
+  }
+
+  // ── IA CHAT ──
+  const SYSTEM_PROMPT = `Eres un consultor educativo especializado en la Ley 1715 de 2014 y la transición energética de Colombia.
+Tu función es orientar a personas sobre fuentes no convencionales de energía (FNCE), incentivos tributarios, autogeneración solar y eólica, trámites ante la UPME, y la normativa energética colombiana vigente (incluyendo la Ley 2099 de 2021 que modifica la Ley 1715).
+
+Responde siempre en español, de forma clara, práctica y accesible para personas sin formación técnica o legal.
+Usa emojis ocasionalmente para hacer las respuestas más amigables.
+Sé concreto, útil y orientado a la acción.
+
+Al final de respuestas sobre decisiones tributarias o de inversión importantes, recuerda brevemente que deben consultar a un contador o especialista para su caso particular.
+
+Temas que puedes abordar:
+- Fuentes FNCE (solar, eólica, biomasa, geotérmica, pequeñas hidroeléctricas, energía de los mares)
+- Incentivos tributarios: deducción renta 50%, exclusión IVA, exención arancel, depreciación acelerada
+- Autogeneración a pequeña y gran escala
+- Excedentes de energía y compensación en factura
+- Certificación UPME y trámites
+- Conexión a la red y operadores
+- Zonas no interconectadas
+- Relación con Ley 2099 de 2021
+- Potencial solar y eólico en Colombia por regiones
+- Casos prácticos de instalación de paneles solares
+- Proyectos industriales y empresariales de energía renovable`;
+
+  let chatHistory = [];
+  let isLoading = false;
+
+  function toggleAI() {
+    const overlay = document.getElementById('aiOverlay');
+    overlay.classList.toggle('open');
+    if (overlay.classList.contains('open')) {
+      setTimeout(() => document.getElementById('aiInput').focus(), 300);
+    }
+  }
+
+  function closeAIOverlay(e) {
+    if (e.target === document.getElementById('aiOverlay')) toggleAI();
+  }
+
+  function handleKey(e) {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+  }
+
+  function sendSuggestion(text) {
+    document.getElementById('aiInput').value = text;
+    sendMessage();
+  }
+
+  function appendMsg(role, html) {
+    const box = document.getElementById('aiMessages');
+    const wrap = document.createElement('div');
+    wrap.className = `ai-msg ai-msg-${role}`;
+    const bubble = document.createElement('div');
+    bubble.className = 'ai-msg-bubble';
+    bubble.innerHTML = html;
+    wrap.appendChild(bubble);
+    box.appendChild(wrap);
+    box.scrollTop = box.scrollHeight;
+    return wrap;
+  }
+
+  function showTyping() {
+    const box = document.getElementById('aiMessages');
+    const wrap = document.createElement('div');
+    wrap.className = 'ai-msg ai-msg-bot ai-typing';
+    wrap.id = 'typingIndicator';
+    wrap.innerHTML = '<div class="ai-msg-bubble"><div class="ai-dot"></div><div class="ai-dot"></div><div class="ai-dot"></div></div>';
+    box.appendChild(wrap);
+    box.scrollTop = box.scrollHeight;
+  }
+
+  function hideTyping() {
+    const el = document.getElementById('typingIndicator');
+    if (el) el.remove();
+  }
+
+  function formatResponse(text) {
+    return text
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*(.*?)\*/g, '<em>$1</em>')
+      .replace(/\n\n/g, '<br><br>')
+      .replace(/\n/g, '<br>');
+  }
+
+  async function sendMessage() {
+    if (isLoading) return;
+    const input = document.getElementById('aiInput');
+    const text = input.value.trim();
+    if (!text) return;
+
+    input.value = '';
+    appendMsg('user', text);
+    chatHistory.push({ role: 'user', content: text });
+
+    isLoading = true;
+    document.getElementById('aiSendBtn').disabled = true;
+    showTyping();
+
+    try {
+      const response = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 1000,
+          system: SYSTEM_PROMPT,
+          messages: chatHistory
+        })
+      });
+
+      const data = await response.json();
+      hideTyping();
+
+      if (data.error) {
+        appendMsg('bot', `⚠️ <em>Error: ${data.error.message}</em>`);
+      } else {
+        const reply = data.content.map(b => b.text || '').join('');
+        chatHistory.push({ role: 'assistant', content: reply });
+        appendMsg('bot', formatResponse(reply));
+      }
+    } catch (err) {
+      hideTyping();
+      appendMsg('bot', '⚠️ <em>No se pudo conectar con el servicio. Verifica tu conexión e intenta de nuevo.</em>');
+    }
+
+    isLoading = false;
+    document.getElementById('aiSendBtn').disabled = false;
+    document.getElementById('aiInput').focus();
+  }
+</script>
+</body>
+</html>
